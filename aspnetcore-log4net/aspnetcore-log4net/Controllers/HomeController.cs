@@ -1,37 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using aspnetcore_log4net.Log4Net;
 using aspnetcore_log4net.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Diagnostics;
 
 namespace aspnetcore_log4net.Controllers
 {
-    public class HomeController : Controller
+  public class HomeController : Controller
+  {
+    private readonly ILogger log;
+
+    public HomeController( ILogger<HomeController> log ) =>
+      this.log = log;
+
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+      log.LogInformation(
+        LogMessage.ControllerActionMessage(
+          nameof( HomeController ),
+          nameof( Index ),
+          "Executing Index action." ) );
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+      return View();  
     }
+
+    public IActionResult About()
+    {
+      DateTime start = DateTime.Now;
+      Stopwatch stopwatch = Stopwatch.StartNew();
+
+      ViewData[ "Message" ] = "Your application description page.";
+
+      TimeSpan duration = stopwatch.Elapsed;
+      log.LogInformation(
+        LogMessage.ControllerActionMessage(
+          nameof( HomeController ),
+          nameof( About ),
+          start,
+          duration,
+          "Message with start and duration." ) );
+
+      return View();
+    }
+
+    public IActionResult Contact()
+    {
+      try
+      {
+        throw new InvalidOperationException( "Sample exception." );
+      }
+      catch ( Exception exception )
+      {
+        log.LogWarning(
+          LogMessage.ControllerActionMessage(
+            nameof( HomeController ),
+            nameof( Contact ),
+            "Sample message.",
+            exception ) );
+      }
+
+      ViewData[ "Message" ] = "Your contact page.";
+
+      return View();
+    }
+
+    public IActionResult Error()
+    {
+      return View( new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier } );
+    }
+  }
 }
