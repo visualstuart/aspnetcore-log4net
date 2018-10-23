@@ -1,25 +1,28 @@
 # aspnetcore-log4net
 An ASP.NET Core logging provider for log4net with support for semantic logging 
 
-## Purpose
+# Purpose
 Investigate the ASP.NET Core 2.0 logging mechanism through the process creating a log4net logging provider. 
 This project aims to explore the ASP.NET Core logging customization and extensibility.
 The concepts should generalize to creating logging providers for other logging mechanisms.
 
 Compare with ASP.NET Core In Action, Andrew Lock, Manning Publ., 2018, section 17.3.2 "Replacing the default ILoggerFactory with Serilog." (https://livebook.manning.com/#!/book/asp-net-core-in-action/chapter-17/159)
 
-### Choosing log4net
+## Choosing log4net
 Log4net might be considered a little dated as a logging solution for .NET, however it remains
 relevant as it is widely used and consumed, and it is a known quantity for operations. 
 For example, the Logly log aggregator can consume logs from log4net.
 
-### Value of semantic logging
+## Value of semantic logging
 Semantic logging adds type safety to logging APIs, making them easier to program against.
 It also enables logs containing structured data (e.g., lines of CSV records in this sample)
 which are easy for operations to consume for health monitoring, notifications, analysis, reporting, and so on.
 
-## Highlights
+# Highlights
+## Dependencies
 * The project has added the **log4net NuGet package**.
+
+## ILogger support for log4net
 * **Log4Net** is a project folder/namespace which contains:
   * **Log4NetExtensions** has extension methods to add a logger provider for log4net to the logger factory.
   * **Log4NetLoggingProvider** is the logging provider for log4net.
@@ -33,6 +36,8 @@ and their cognates in log4net.
   * **LogMessage** provides a layer of type-safe semantic logging, in this case by formatting the message into a CSV string.
   * **RollingFileWithOneHeaderAppender** specializes log4net's RollingFileAppender so that the header 
   is only written once per log file.
+
+## Using ILogger support for log4net
 * The **log4net.config** file contains two appenders: one appends logs to the console for interactive purpose, the other uses the RollingFileWithOneHeaderAppender to write logs to a sequence of files to C:\Temp, it is configured to create one per hour or per 50KB logged, whichever comes first.
 * The project's **Startup** class:
   * Alters the signature of the **Configure** method to include an ILoggerFactory parameter:
