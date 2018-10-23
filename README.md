@@ -35,12 +35,14 @@ and their cognates in log4net.
 * The **log4net.config** file contains two appenders: one appends logs to the console for interactive purpose, the other uses the RollingFileWithOneHeaderAppender to write logs to a sequence of files configured to create one per hour or per 50KB logged, whichever comes first.
 * The project's **Startup** class:
   * Alters the signature of the **Configure** method to include an ILoggerFactory parameter:
-  
-    public void Configure( IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory )
-    
+```
+public void Configure( IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory )
+```    
   * In the **Configure** method, log4net is added to the logger factory and a filter is set to filter out Microsoft Informational logs.
-  
+```  
     loggerFactory.AddLog4Net();
     Log4NetFilters.Set(               // filter out the standard log messages with source "Microsoft"
       source: "Microsoft", 
       filteredLogLevel: LogLevel.Information );
+```
+* The HomeController invokes three different semantic logging methods, one per controller action.
