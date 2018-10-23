@@ -1,13 +1,28 @@
 # aspnetcore-log4net
-ASP.NET Core logging provider using log4net with support for semantic logging.
+An ASP.NET Core logging provider for log4net
+ * Support for semantic logging.
 
 ## Purpose
-Investigate the ASP.NET Core 2.0 logging mechanism by creating a log4net logging provider.
+Investigate the ASP.NET Core 2.0 logging mechanism by creating a log4net logging provider. 
+This project aims to explore the ASP.NET Core logging customization and extensibility.
+The concepts should generalize to creating logging providers for other logging mechanisms. 
 
-## Why log4net?
-Log4net is perhaps a little dated as a .NET logging solutions, however it is widely used and consumed,
-making it a known quantity for operations. For example, the Logly log aggregator can consume logs from log4net.
+### Choosing log4net
+Log4net might be considered a little dated as a logging solution for .NET, however it remains
+relevant as it is widely used and consumed, and it is a known quantity for operations. 
+For example, the Logly log aggregator can consume logs from log4net.
 
-## Why semantic logging support?
-Semantic logging enables writing structured data to logs (e.g., CSV records)
-which are better to consume for operational purposes such as health monitoring, notifications, and reporting.
+### Value of semantic logging
+Semantic logging adds type safety to logging APIs, making them easier to program against.
+It also enables logs containing structured data (e.g., lines of CSV records in this sample)
+which are easy for operations to consume for health monitoring, notifications, analysis, reporting, and so on.
+
+## Highlights
+  * log4net NuGet package
+  * The Log4Net folder/namespace contains:
+  ** Log4NetExtensions has extension methods to add a logger provider for log4net to the logger factory.
+  ** Log4NetLoggingProvider is the logging provider for log4net.
+It manages a thread-safe collection of Log4NetLoggers, indexed by category name.
+(This sample doesn't use of category names.)
+  ** Log4NetLogger is the intermediary that maps between Microsoft.Extensions.Logging constructs
+and their cognates in log4net
