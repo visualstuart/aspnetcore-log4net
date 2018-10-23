@@ -19,10 +19,10 @@ which are easy for operations to consume for health monitoring, notifications, a
 
 ## Highlights
 * The project has added the log4net NuGet package.
-* Log4Net folder/namespace contains:
-  * Log4NetExtensions has extension methods to add a logger provider for log4net to the logger factory.
-  * Log4NetLoggingProvider is the logging provider for log4net.
+* *Log4Net* is a project folder/namespace which contains:
+  * *Log4NetExtensions* has extension methods to add a logger provider for log4net to the logger factory.
+  * *Log4NetLoggingProvider* is the logging provider for log4net.
 It manages a thread-safe collection of Log4NetLoggers, indexed by category name.
 (This sample doesn't use of category names.)
-  * Log4NetLogger is the intermediary that maps between Microsoft.Extensions.Logging constructs
+  * *Log4NetLogger* is the intermediary that maps between Microsoft.Extensions.Logging constructs
 and their cognates in log4net
