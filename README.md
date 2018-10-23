@@ -6,14 +6,14 @@ Investigate the ASP.NET Core 2.0 logging mechanism through the process creating 
 This project aims to explore the ASP.NET Core logging customization and extensibility.
 The concepts should generalize to creating logging providers for other logging mechanisms.
 
-Compare with ASP.NET Core In Action, Andrew Lock, Manning Publ., 2018, section 17.3.2 "Replacing the default ILoggerFactory with Serilog." (https://livebook.manning.com/#!/book/asp-net-core-in-action/chapter-17/159)
+Compare with ASP.NET Core In Action, Andrew Lock, Manning Publ., 2018, section 17.3.2 "Replacing the default ILoggerFactory with Serilog." (https://www.manning.com/books/asp-net-core-in-action)
 
-## Choosing log4net
+**Choosing log4net.** 
 Log4net might be considered a little dated as a logging solution for .NET, however it remains
 relevant as it is widely used and consumed, and it is a known quantity for operations. 
 For example, the Logly log aggregator can consume logs from log4net.
 
-## Value of semantic logging
+**Value of semantic logging.**
 Semantic logging adds type safety to logging APIs, making them easier to program against.
 It also enables logs containing structured data (e.g., lines of CSV records in this sample)
 which are easy for operations to consume for health monitoring, notifications, analysis, reporting, and so on.
