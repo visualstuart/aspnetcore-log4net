@@ -78,7 +78,7 @@ This project draws on references (see below), Microsoft docs, ASP.NET Core open 
 
 # References and resources
 * `[Blum2016]` Blumhardt, Nicholas, "Smart Logging Middleware for ASP.NET Core", getseq.net blog post, 12/7/2016, https://blog.getseq.net/smart-logging-middleware-for-asp-net-core/. 
- * Nicholas Blumhardt is the instigator of Autofaq, Serilog, and other projects, see https://nblumhardt.com/about/
+  * Nicholas Blumhardt is the instigator of Autofaq, Serilog, and other projects, see https://nblumhardt.com/about/
 * `[Lock2018]` Lock, Andrew, ASP.NET Core In Action, Manning Publications, 2018. https://www.manning.com/books/asp-net-core-in-action
   * In particular, see section 17.3.2 "Replacing the default ILoggerFactory with Serilog."
 * `[Para2017]` - Parameswaran, Anuraj, "How to use Log4Net with ASP.NET Core for logging", dotnetthoughts.net blog post, 2/18/2017, https://dotnetthoughts.net/how-to-use-log4net-with-aspnetcore-for-logging/
