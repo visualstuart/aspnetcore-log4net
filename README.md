@@ -75,4 +75,5 @@ for all of which the author is grateful.
   * Nicholas Blumhardt is the instigator of Autofaq, Serilog, and other projects, see https://nblumhardt.com/about/
 * `[Lock2018]` Lock, Andrew, ASP.NET Core In Action, Manning Publications, 2018. https://www.manning.com/books/asp-net-core-in-action
   * In particular, see section 17.3.2 "Replacing the default ILoggerFactory with Serilog."
+* `[MicrosoftDocs]` Microsoft | Docs | ASP.NET Core 2.1 | Logging in ASP.NET Core, last updated 10/10/2018, https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1 
 * `[Para2017]` - Parameswaran, Anuraj, "How to use Log4Net with ASP.NET Core for logging", dotnetthoughts.net blog post, 2/18/2017, https://dotnetthoughts.net/how-to-use-log4net-with-aspnetcore-for-logging/
