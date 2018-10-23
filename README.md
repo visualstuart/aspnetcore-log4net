@@ -1,5 +1,5 @@
 # aspnetcore-log4net
-An ASP.NET Core logging provider for log4net with support for semantic logging 
+An ASP.NET Core logging provider for log4net with support for semantic logging suitable for operations.
 
 # Purpose
 Investigate the ASP.NET Core 2.0 logging mechanism through the process creating a log4net logging provider. 
@@ -72,3 +72,7 @@ SELECT
 FROM '[LOGFILEPATH]'
 WHERE duration > '0.03'
 ```
+
+# Acknowledgements
+This project draws on a number of posts, Microsoft docs, ASP.NET Core open source code, and the book ASP.NET Core In Action (op. cit.)
+(TBC)
