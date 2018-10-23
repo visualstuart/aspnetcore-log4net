@@ -33,10 +33,13 @@ and their cognates in log4net.
   * **RollingFileWithOneHeaderAppender** specializes log4net's RollingFileAppender so that the header 
   is only written once per log file.
 * The **log4net.config** file contains two appenders: one appends logs to the console for interactive purpose, the other uses the RollingFileWithOneHeaderAppender to write logs to a sequence of files configured to create one per hour or per 50KB logged, whichever comes first.
-* The Startup class:
-  * Changes the signature of the Configure method to include an ILoggerFactory parameter:
+* The project's **Startup** class:
+  * Alters the signature of the **Configure** method to include an ILoggerFactory parameter:
+  
     public void Configure( IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory )
-  * Inside the Configure method, log4net is added to the logger factory and a filter is set to filter out Microsoft Informational logs.
+    
+  * In the **Configure** method, log4net is added to the logger factory and a filter is set to filter out Microsoft Informational logs.
+  
     loggerFactory.AddLog4Net();
     Log4NetFilters.Set(               // filter out the standard log messages with source "Microsoft"
       source: "Microsoft", 
