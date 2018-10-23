@@ -1,10 +1,12 @@
 # aspnetcore-log4net
-An ASP.NET Core logging provider for log4net with support for semantic loggingthrough the process 
+An ASP.NET Core logging provider for log4net with support for semantic logging 
 
 ## Purpose
 Investigate the ASP.NET Core 2.0 logging mechanism through the process creating a log4net logging provider. 
 This project aims to explore the ASP.NET Core logging customization and extensibility.
-The concepts should generalize to creating logging providers for other logging mechanisms. 
+The concepts should generalize to creating logging providers for other logging mechanisms.
+
+Compare with ASP.NET Core In Action, Andrew Lock, Manning Publ., 2018, section 17.3.2 "Replacing the default ILoggerFactory with Serilog." (https://livebook.manning.com/#!/book/asp-net-core-in-action/chapter-17/159)
 
 ### Choosing log4net
 Log4net might be considered a little dated as a logging solution for .NET, however it remains
